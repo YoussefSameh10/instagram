@@ -90,8 +90,6 @@ class _InstaStoryState extends State<InstaStory> {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
         children: [
           storyText,
           story
