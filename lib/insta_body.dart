@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/insta_list.dart';
 import 'package:instagram/insta_story.dart';
 
 class InstaBody extends StatefulWidget {
@@ -9,6 +10,11 @@ class InstaBody extends StatefulWidget {
 class _InstaBodyState extends State<InstaBody> {
   @override
   Widget build(BuildContext context) {
-    return InstaStory();
+    return ListView(
+      children: [
+        InstaStory(),
+        InstaList()
+      ],
+    );
   }
 }

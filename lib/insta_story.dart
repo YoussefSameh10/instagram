@@ -10,6 +10,8 @@ class InstaStory extends StatefulWidget {
 class _InstaStoryState extends State<InstaStory> {
 
   Row storyText = Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    mainAxisSize: MainAxisSize.max,
     children: [
       Text(
         'Stories',
@@ -18,18 +20,27 @@ class _InstaStoryState extends State<InstaStory> {
             fontWeight: FontWeight.bold
         ),
       ),
-      SizedBox(width: 190,),
-      Icon(
-        Icons.play_arrow,
-        size: 30,
-      ),
-      Text(
-        'Watch All',
-        style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold
+
+      Expanded(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Icon(
+              Icons.play_arrow,
+              size: 30,
+            ),
+            Text(
+              'Watch All',
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+          ],
         ),
       ),
+
     ],
   );
   Container story = Container(
