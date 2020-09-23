@@ -86,7 +86,64 @@ class _InstaHomeState extends State<InstaHome> {
     return Scaffold(
       appBar: instaBar,
       body: InstaBody(),
-      bottomNavigationBar: navBar
+      //bottomNavigationBar: navBar
+      bottomNavigationBar: Container(
+        height: 60,
+
+        child: BottomAppBar(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                  icon: Icon(
+                    Icons.home,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                onPressed: () {},
+
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.search,
+                  color: Colors.black38,
+                  size: 30,
+                ),
+                onPressed: () {},
+
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.add_box,
+                  color: Colors.black38,
+                  size: 30,
+                ),
+                onPressed: () {},
+
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.favorite,
+                  color: Colors.black38,
+                  size: 30,
+                ),
+                onPressed: () {},
+
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.account_box,
+                  color: Colors.black38,
+                  size: 30,
+                ),
+                onPressed: () {},
+
+              ),
+            ],
+          ),
+
+        ),
+      ),
     );
   }
 }

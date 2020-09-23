@@ -13,6 +13,7 @@ class _InstaBodyState extends State<InstaBody> {
     return ListView(
       children: [
         InstaStory(),
+        Divider(),
         InstaList()
       ],
     );

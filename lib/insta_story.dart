@@ -44,7 +44,7 @@ class _InstaStoryState extends State<InstaStory> {
     ],
   );
   Container story = Container(
-      height: 80,
+      height: 70,
       child: Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: ListView.builder(
@@ -57,7 +57,7 @@ class _InstaStoryState extends State<InstaStory> {
                 Container(
                   width: 60,
                   height: 60,
-                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  margin: EdgeInsets.symmetric(horizontal: 4),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
@@ -70,7 +70,7 @@ class _InstaStoryState extends State<InstaStory> {
                     ? Positioned(
                   child: CircleAvatar(
                     backgroundColor: Colors.blueAccent,
-                    radius: 15,
+                    radius: 10,
                     child: Icon(
                       Icons.add,
                       size: 20,
@@ -91,7 +91,7 @@ class _InstaStoryState extends State<InstaStory> {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
-          storyText,
+          //storyText,
           story
         ],
       ),

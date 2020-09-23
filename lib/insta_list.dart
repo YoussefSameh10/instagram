@@ -7,7 +7,7 @@ class InstaList extends StatefulWidget {
   _InstaListState createState() => _InstaListState();
 }
 
-class _InstaListState extends State<InstaList> {
+class _InstaListState extends State<InstaList> with SingleTickerProviderStateMixin {
 
   bool isFav0 = false;
   bool isFav1 = false;
@@ -17,7 +17,49 @@ class _InstaListState extends State<InstaList> {
   bool isFav5 = false;
   bool isFav6 = false;
   bool isFav7 = false;
+  AnimationController controller ;
+  Animation<Color> colorAnimation;
 
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+        duration: Duration(milliseconds: 200),
+        vsync: this
+    );
+    colorAnimation = TweenSequence(
+      <TweenSequenceItem<Color>>[
+        TweenSequenceItem<Color>(
+          tween: ColorTween(begin: Colors.transparent, end: Colors.white),
+          weight: 50
+        ),
+        TweenSequenceItem<Color>(
+          tween: ColorTween(begin: Colors.white, end: Colors.transparent),
+          weight: 50
+        )
+      ]
+    ).animate(controller);
+
+    controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          isFav0 = true;
+        });
+      }
+      if (status == AnimationStatus.dismissed) {
+        setState(() {
+          isFav0 = false;
+        });
+      }
+    });
+
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +86,34 @@ class _InstaListState extends State<InstaList> {
             GestureDetector(
               onDoubleTap: () {
                 setState(() {
-                  isFav0 = !isFav0;
+                  if(!isFav0){
+                    isFav0 = !isFav0;
+                    controller.forward();
+                  } else{
+                    isFav0 = !isFav0;
+                    controller.reverse();
+                  }
+
                 });
               },
-              child: Image.asset(
-                'assets/ice_cream.jpg',
-                fit: BoxFit.fitWidth,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset(
+                    'assets/ice_cream.jpg',
+                    fit: BoxFit.fitWidth,
+                  ),
+                  AnimatedBuilder(
+                    animation: controller,
+                    builder: (BuildContext context, _) {
+                      return Icon(
+                        Icons.favorite,
+                        size: 100,
+                        color: colorAnimation.value,
+                      );
+                    },
+                  )
+                ]
               ),
             ),
             Padding(
