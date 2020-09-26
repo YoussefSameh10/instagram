@@ -73,9 +73,10 @@ class _InstaPostState extends State<InstaPost> with SingleTickerProviderStateMix
             'Joe',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          trailing: Icon(
-            Icons.more_vert,
+          trailing: IconButton(
+            icon: Icon(Icons.more_vert),
             color: Colors.grey[700],
+            onPressed: () {},
           ),
         ),
         GestureDetector(
