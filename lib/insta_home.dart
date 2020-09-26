@@ -37,48 +37,63 @@ class _InstaHomeState extends State<InstaHome> {
       )
     ],
   );
-  BottomNavigationBar navBar = BottomNavigationBar(
-    iconSize: 30,
-    currentIndex: 0,
-    selectedIconTheme: IconThemeData(color: Colors.black, opacity: 1),
-    unselectedIconTheme: IconThemeData(color: Colors.black, opacity: 0.4),
-    items: [
-      BottomNavigationBarItem(
-          icon: Icon(
-            Icons.home,
+
+  Container nav = Container(
+    height: 60,
+
+    child: BottomAppBar(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {},
 
           ),
-          title: Text('')
-      ),
-      BottomNavigationBarItem(
-          icon: Icon(
-            Icons.search,
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              color: Colors.black38,
+              size: 30,
+            ),
+            onPressed: () {},
 
           ),
-          title: Text('')
-      ),
-      BottomNavigationBarItem(
-          icon: Icon(
-            Icons.add_box,
+          IconButton(
+            icon: Icon(
+              Icons.add_box,
+              color: Colors.black38,
+              size: 30,
+            ),
+            onPressed: () {},
 
           ),
-          title: Text('')
-      ),
-      BottomNavigationBarItem(
-          icon: Icon(
-            Icons.favorite,
+          IconButton(
+            icon: Icon(
+              Icons.favorite,
+              color: Colors.black38,
+              size: 30,
+            ),
+            onPressed: () {},
 
           ),
-          title: Text('')
-      ),
-      BottomNavigationBarItem(
-          icon: Icon(
-            Icons.portrait,
+          IconButton(
+            icon: Icon(
+              Icons.account_box,
+              color: Colors.black38,
+              size: 30,
+            ),
+            onPressed: () {},
 
           ),
-          title: Text('')
+        ],
       ),
-    ],
+
+    ),
   );
 
   @override
@@ -86,64 +101,7 @@ class _InstaHomeState extends State<InstaHome> {
     return Scaffold(
       appBar: instaBar,
       body: InstaBody(),
-      //bottomNavigationBar: navBar
-      bottomNavigationBar: Container(
-        height: 60,
-
-        child: BottomAppBar(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                  icon: Icon(
-                    Icons.home,
-                    color: Colors.black,
-                    size: 30,
-                  ),
-                onPressed: () {},
-
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.search,
-                  color: Colors.black38,
-                  size: 30,
-                ),
-                onPressed: () {},
-
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.add_box,
-                  color: Colors.black38,
-                  size: 30,
-                ),
-                onPressed: () {},
-
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.favorite,
-                  color: Colors.black38,
-                  size: 30,
-                ),
-                onPressed: () {},
-
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.account_box,
-                  color: Colors.black38,
-                  size: 30,
-                ),
-                onPressed: () {},
-
-              ),
-            ],
-          ),
-
-        ),
-      ),
+      bottomNavigationBar: nav
     );
   }
 }
