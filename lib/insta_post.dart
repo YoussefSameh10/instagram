@@ -182,11 +182,12 @@ class _InstaPostState extends State<InstaPost> with SingleTickerProviderStateMix
                 backgroundImage: NetworkImage(profilePic),
               ),
               SizedBox(width: 8,),
-              Text(
-                'Add a comment...',
-                style: TextStyle(
-                    color: Colors.black38,
-                    fontSize: 18
+              Expanded(
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Add A Comment',
+                    border: InputBorder.none
+                  ),
                 ),
               )
             ],
