@@ -82,28 +82,46 @@ class _InstaBodyState extends State<InstaBody> {
             IconButton(
               icon: Icon(
                 Icons.add_box,
-                color: Colors.black38,
+                color: screen == 'add'
+                    ? Colors.black
+                    : Colors.black38,
                 size: 30,
               ),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  screen = 'add';
+                });
+              },
 
             ),
             IconButton(
               icon: Icon(
                 Icons.favorite,
-                color: Colors.black38,
+                color: screen == 'fav'
+                    ? Colors.black
+                    : Colors.black38,
                 size: 30,
               ),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  screen = 'fav';
+                });
+              },
 
             ),
             IconButton(
               icon: Icon(
                 Icons.account_box,
-                color: Colors.black38,
+                color: screen == 'profile'
+                    ? Colors.black
+                    : Colors.black38,
                 size: 30,
               ),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  screen = 'profile';
+                });
+              },
 
             ),
           ],
@@ -118,8 +136,13 @@ class _InstaBodyState extends State<InstaBody> {
             ? InstaHome()
             : screen == 'search'
             ? InstaSearch()
-            :InstaHome(),
-
+//            : screen == 'add'
+//            ? InstaAdd()
+//            : screen == 'fav'
+//            ? InstaFav()
+//            : screen == 'profile'
+//            ? InstaProfile()
+            : InstaHome(),
         bottomNavigationBar: nav
     );
   }
